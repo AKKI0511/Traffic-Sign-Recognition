@@ -1,3 +1,4 @@
+![image](https://github.com/AKKI0511/Traffic-Sign-Recognition/assets/120317569/760cebfb-680d-4c95-8a94-8d12d58b2da4)
 
 ## Experimentation Steps
 
