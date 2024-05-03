@@ -1,4 +1,6 @@
-![image](https://github.com/AKKI0511/Traffic-Sign-Recognition/assets/120317569/760cebfb-680d-4c95-8a94-8d12d58b2da4)
+# Model Accuracy
+
+![Screenshot 2024-05-03 173319](https://github.com/AKKI0511/Traffic-Sign-Recognition/assets/120317569/0f3f74b6-75c1-4a20-9636-35c7cf0b24ea)
 
 ## Experimentation Steps
 
