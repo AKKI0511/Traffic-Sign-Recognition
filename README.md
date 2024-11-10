@@ -1,42 +1,35 @@
-# Model Accuracy
+# Traffic Sign Recognition using Deep Learning
 
-![Screenshot 2024-05-03 173319](https://github.com/AKKI0511/Traffic-Sign-Recognition/assets/120317569/0f3f74b6-75c1-4a20-9636-35c7cf0b24ea)
+## Project Overview
+This project focuses on the task of traffic sign recognition, implementing and evaluating several deep learning models to assess their effectiveness and efficiency. By leveraging both custom Convolutional Neural Networks (CNNs) and transfer learning models (`ResNet50`, `MobileNetV2`), we provide a comprehensive evaluation of model accuracy, inference time, and resource requirements, all essential for real-world deployment.
 
-## Experimentation Steps
+## Key Results
+The project demonstrates high accuracy in the custom CNN model, with the following metrics highlighting each model’s performance:
 
-1. **Base Model:**
-   - I started with a basic convolutional neural network (CNN) architecture consisting of three convolutional layers with max-pooling, followed by a densely connected layer and an output layer.
-   - The model was compiled using the Adam optimizer and categorical crossentropy loss.
+| Model       | Test Accuracy | Test Loss | Inference Time (s) | Model Size (MB) | Memory Usage (MB) |
+|-------------|---------------|-----------|---------------------|------------------|--------------------|
+| Custom CNN  | **98.77%**    | 0.0436    | 0.0016             | 4.43            | 2524.48           |
+| ResNet50    | 18.97%        | 6.4846    | 0.0127             | 102.65          | 2636.24           |
+| MobileNetV2 | 44.41%        | 1.8762    | 0.0078             | 16.75           | 2740.39           |
 
-2. **Filter Sizes and Pooling:**
-   - I experimented with different filter sizes in convolutional layers (e.g., (3, 3), (5, 5)) to capture various image features.
-   - Adjusted max-pooling sizes to control downsampling.
+- **Custom CNN** outperforms the transfer learning models, achieving 98.77% accuracy and minimal inference time, making it suitable for high-performance, low-latency environments.
+- **ResNet50** and **MobileNetV2**, while powerful for large-scale image classification tasks, show limited effectiveness here without fine-tuning, given their significantly lower accuracy and larger memory footprint.
 
-3. **Hidden Layers and Dropout:**
-   - Introduced a dense hidden layer with 512 units and experimented with dropout (0.5) to prevent overfitting.
-   - Tried different sizes and numbers of hidden layers for feature extraction.
+## Data Preprocessing
+The dataset of categorized images is loaded, preprocessed, and normalized. Each image is resized to a standard dimension, ensuring compatibility across models. Data augmentation techniques are applied to enhance training data variability, contributing to better generalization.
 
-4. **Activation Functions:**
-   - Experimented with activation functions, starting with ReLU for convolutional layers and softmax for the output layer.
-   - Tried alternatives like Leaky ReLU and tanh for hidden layers.
+## Model Architectures
+1. **Custom CNN:** Optimized with batch normalization and dropout for robust learning and minimal overfitting.
+2. **Transfer Learning Models (ResNet50, MobileNetV2):** Pre-trained on large-scale datasets but adapted to the traffic sign dataset, though with limited efficacy in this specific domain.
 
-5. **Optimizers and Learning Rates:**
-   - Explored different optimizers (e.g., Adam, SGD) and learning rates to observe convergence speed and final accuracy.
-
-## Observations
-
-- **What Worked Well:**
-  - The base model with a simple CNN architecture provided a reasonable starting point.
-  - Increasing model complexity with additional hidden layers improved the model's ability to capture intricate features.
-
-- **What Didn't Work Well:**
-  - Extremely deep architectures led to overfitting, highlighting the importance of dropout for regularization.
-  - Larger filter sizes resulted in longer training times without significant accuracy improvement.
-
-- **General Notes:**
-  - Adam optimizer consistently performed well in terms of convergence speed and final accuracy.
-  - Experimenting with various hyperparameters is crucial, but it requires careful monitoring of training and validation performance.
+## Evaluation and Analysis
+The custom CNN model demonstrates optimal balance in accuracy, efficiency, and resource utilization, making it the top choice for deployment scenarios requiring high accuracy with limited computational resources.
 
 ## Conclusion
+This project validates the effectiveness of CNN-based approaches for traffic sign recognition. The impressive accuracy of the custom CNN model, along with its efficient memory and inference requirements, makes it highly suited for real-world applications like autonomous driving or traffic monitoring systems.
 
-The experimentation process was insightful, emphasizing the importance of balancing model complexity and overfitting. The final model employs a moderately deep architecture with suitable dropout, filter sizes, and pooling, achieving satisfactory accuracy on the traffic sign recognition task.
+## Future Improvements
+1. **Cross-Validation**: Implement cross-validation for further model robustness.
+2. **Additional Architectures**: Explore models like VGG16 or EfficientNet for potential accuracy improvements.
+3. **Gradual Layer Unfreezing**: Fine-tune transfer learning models by unfreezing layers in stages for enhanced accuracy.
+4. **Interpretability**: Integrate Grad-CAM or SHAP values to better understand model decision-making.
